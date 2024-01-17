@@ -1,0 +1,77 @@
+<?php
+
+Class UserModel{
+
+    public static function takeAllUsers()
+    {
+        $conn = Conn::sqlite3();
+        $sql = "SELECT * FROM user";
+        $result = $conn->query($sql);
+        $user = array();
+        while($col = $result->fetchArray(SQLITE3_ASSOC)){
+            $users[] = $col;
+        }
+        return $user;
+    }
+
+    public static function takeUserById(){
+        $conn = Conn::sqlite3();
+        $sql = "SELECT * FROM user WHERE id = {$id}";
+        $result = $conn->query($sql);
+        while($col = $result->fetchArray(SQLITE3_ASSOC)){
+            $user = $col;
+        }
+        return $user;
+    }
+
+    public static function addUser($name, $mail, $password){
+        $conn = Conn::sqlite3();
+        $sql = "INSERT INTO user(name, email, password)VALUES ({$name}, {$email}, {$password})";
+        $result = $conn->query($sql);
+        while($col = $result->fetchArray(SQLITE3_ASSOC)){
+            $user = $col;
+        }
+        return $user;
+    }
+
+    public static function editUser($id, $name, $email)
+    {
+        $conn = Conn::sqlite3();
+        $sql = "UPDATE user SET name = '{$name}', email = '{$email}' WHERE id = {$id}";
+        $result = $conn->query($sql);
+        if(!$result){
+            die("Error while UPDATE user");
+        }
+        return "User Successfuly UPDATED!";
+    }
+
+    public static function deleteUser($id)
+    {
+        $conn = Conn::sqlite3();
+        $sql = "DELETE FROM user WHERE id = {$id}";
+        $result = $conn->query($sql);
+        if(!$result)
+        {
+            die("Erro while DELETE user");
+        }
+        if($_SESSION["access"]["id"] == $id)
+        {
+            redirectView("login/logout");
+        }
+        
+        return "User Successfuly DELETED!";
+    }
+
+    public static function takeUserByEmailPassword($email, $password)
+    {
+        $conn = Conn::sqlite3();
+        $sql = "SELECT * FROM user WHERE email = '{$email}' AND password = '{$password}'";
+        $result = $conn->query($sql);
+        while ($col = $result->fetchArray(SQLITE3_ASSOC))
+        {
+            $user = $col;
+        }
+        return $user;
+    }
+
+}
