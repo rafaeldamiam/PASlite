@@ -12,10 +12,11 @@ class Access
 				"email" => $user["email"],
 				"role" => $user["role"]
 			);
-
 			return true;
+		}else{
+			return false;
 		}
-		return false;
+		
 	}
 
 	public static function accessLogout()
@@ -32,23 +33,22 @@ class Access
 
 	public static function getAccessRoleUser()
 	{
-		Debug::dump($_SERVER["access"]);
 		if(Access::accessUserIsLogged()){
-			return $_SERVER["access"]["role"];
+			return $_SESSION["access"]["role"];
 		}
 	}
 
 	public static function getAccessEmailUser()
 	{
 		if(Access::accessUserIsLogged()){
-			return $_SERVER["access"]["email"];
+			return $_SESSION["access"]["email"];
 		}
 	}
 
 	public static function getAccessNameUser()
 	{
 		if(Access::accessUserIsLogged()){
-			return $_SERVER["access"]["name"];
+			return $_SESSION["access"]["name"];
 		}
 	}
 
