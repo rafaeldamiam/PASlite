@@ -9,7 +9,7 @@ function index() {
         $user = UserModel::takeUserByEmailPassword($email, $password);
         if (Access::accessLogin($user)) {
             Alert::showAlert("Welcome" . $login);
-            View::redirectView("app/");
+            View::redirectView("app/index");
         } else {
             Alert::showAlert("User or Password Invalid!");
         }
@@ -21,7 +21,7 @@ function index() {
 function logout() {
     Access::accessLogout();
     Alert::showAlert("Logout Sucessful!");
-    View::redirectView("app/");
+    View::redirectView("app/index");
 }
 
 ?>

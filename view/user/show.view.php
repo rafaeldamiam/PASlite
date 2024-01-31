@@ -1,4 +1,4 @@
-<h2>Visão</h2>
-<p>id: <?=$usuario['id']?></p>
-<p>nome: <?=$usuario['nome']?></p>
-<p>email: <?=$usuario['email']?></p>
+<h1>View</h1>
+<p>id: <?=$user['id']?></p>
+<p>name: <?=$user['name']?></p>
+<p>email: <?=$user['email']?></p>

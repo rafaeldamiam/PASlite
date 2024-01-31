@@ -1,6 +1,8 @@
+<h1>User Form</h1>
+
 <form action="" method="POST">
-    nome: <input type="text" name="nome" value="<?=@$usuario['nome']?>">
-    email: <input type="text" name="email" value="<?=@$usuario['email']?>">
-    senha: <input type="password" name="senha" value="<?=@$usuario['senha']?>">
-    <button type="submit">Enviar</button>
+    name: <input type="text" name="name" value="<?=@$user['name']?>">
+    email: <input type="text" name="email" value="<?=@$user['email']?>">
+    password: <input type="password" name="password" value="<?=@$user['password']?>">
+    <button type="submit">Send</button>
 </form>

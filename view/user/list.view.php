@@ -1,27 +1,27 @@
-<h2>Listar usuários todos</h2>
+<h1>List All Users</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>EMAIL</th>
-            <th>VIEW</th>
-            <th>EDIT</th>
-            <th>DELETE</th>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>view</th>
+            <th>edit</th>
+            <th>delete</th>
         </tr>
     </thead>
-    <?php foreach ($usuarios as $usuario): ?>
+    <?php foreach ($users as $user): ?>
     <tr>
-        <td><?=$usuario['id']?></td>
-        <td><?=$usuario['nome']?></td>
-        <td><?=$usuario['email']?></td>
-        <td><a href="./usuario/visualizar/<?=$usuario['id']?>" class="btn btn-secondary">view</a></td>
-        <td><a href="./usuario/editar/<?=$usuario['id']?>" class="btn btn-info">edit</a></td>
-        <td><a href="./usuario/deletar/<?=$usuario['id']?>" class="btn btn-danger">del</a></td>
+        <td><?=$user['id']?></td>
+        <td><?=$user['name']?></td>
+        <td><?=$user['email']?></td>
+        <td><a href="./user/view/<?=$user['id']?>" class="btn btn-secondary">view</a></td>
+        <td><a href="./user/edit/<?=$user['id']?>" class="btn btn-info">edit</a></td>
+        <td><a href="./user/delete/<?=$user['id']?>" class="btn btn-danger">del</a></td>
     </tr>
     <?php endforeach; ?>
 </table>
 
-<a href="./usuario/adicionar" class="btn btn-primary">Adicionar novo usuario</a>
+<a href="./user/add" class="btn btn-primary">Add New User</a>
 

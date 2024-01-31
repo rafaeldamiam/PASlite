@@ -83,6 +83,7 @@ class Services
          * 1 -> localhost/paslite/controller/action/param1/param2/..
          */
         $uri = explode("/", filter_input(INPUT_SERVER, 'REQUEST_URI'));
+
         $nameController = Services::cleanURI(APP_POSITION);
 
         if (!$nameController && MAIN_CONTROLLER) {
@@ -90,8 +91,11 @@ class Services
         }
         $nameController = "controller/" . $nameController . ".controller.php";
         $positionActionController = APP_POSITION + 1;
+
         $nameActionController = (isset($uri[$positionActionController]) and !empty($uri[$positionActionController])) ? $nameActionController = $uri[$positionActionController] : 'index';
+
         $positionParameters = APP_POSITION + 2;
+
         $parameterscontroller = (count($uri) > $positionParameters) ? array_slice($uri, $positionParameters) : array();
 
         $url = array(
@@ -100,5 +104,21 @@ class Services
             "parametersController" => $parameterscontroller
         );
         return $url;
+    }
+
+    public static function treatFloat($row)
+    {
+        $array = explode(",", $row);
+        $arrayEdited = $array[0];
+        if(!empty($array[1])){
+            $array = [$array[0],$array[1]];
+            if(empty($array[0])){
+                $array = [0,$array[1]];
+            }
+            $arrayEdited = floatval(0);
+            $arrayEdited = implode(".", $array);
+        }
+
+        return $arrayEdited;
     }
 }

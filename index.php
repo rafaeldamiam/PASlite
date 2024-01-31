@@ -4,6 +4,7 @@ session_start();
 foreach (glob("application/*.app.php") as $filename){ require_once $filename;}
 
 extract(Services::treatURL());
+
 if(!file_exists($nameController)){
 	die("Not found any file: {$nameController}");
 }
