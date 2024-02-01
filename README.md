@@ -6,8 +6,8 @@ This is my own framework, inspire on the framework made by my teacher Danilo Bue
 The idea behind this framework was made a new project to enforce me to start programming again. The name PASlite is the abbreviation of **P**HP **A**PACHE **S**Q**LITE**. Using **M**odel **V**iew **C**ontroller method of development.
 
 # Release
-Version 1.0 - Basics functions working
-	> BD Connection;
-	> Login;
-	> CRUD of User;
-	> Basic Sanitization;
+Version 1.0 - Basics functions working \
+	> BD Connection; \
+	> Login; \
+	> CRUD of User; \
+	> Basic Sanitization; 
