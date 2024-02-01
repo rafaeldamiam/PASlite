@@ -86,11 +86,15 @@ class Services
 
         $nameController = Services::cleanURI(APP_POSITION);
 
+
         if (!$nameController && MAIN_CONTROLLER) {
             $nameController = MAIN_CONTROLLER;
         }
+
         $nameController = "controller/" . $nameController . ".controller.php";
+
         $positionActionController = APP_POSITION + 1;
+
 
         $nameActionController = (isset($uri[$positionActionController]) and !empty($uri[$positionActionController])) ? $nameActionController = $uri[$positionActionController] : 'index';
 
@@ -103,6 +107,7 @@ class Services
             "nameActionController" => $nameActionController,
             "parametersController" => $parameterscontroller
         );
+        
         return $url;
     }
 

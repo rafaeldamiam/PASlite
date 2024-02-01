@@ -17,7 +17,7 @@
     <title><?php echo Services::pageTitle(); ?></title>
   </head>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="app/">Home</a>
+    <a class="navbar-brand" href='<?=URL_BASE."app/"?>'>Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,12 +25,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="app/about">About Us</a>
+          <a class="nav-link" href='<?=URL_BASE."app/about"?>'>About Us</a>
         </li>
         
     </div>
     <ul class="navbar-nav mr-auto">
+    <?php if (isset($_SESSION["access"])) :?>
       <li class="nav-item">
-        <a class="navbar-brand" href="login/">Login</a>
+        <a class="navbar-brand" href='<?=URL_BASE."login/logout"?>'>Logout</a>
       </li>
+    <?php else:?>
+      <li class="nav-item">
+        <a class="navbar-brand" href='<?=URL_BASE."login/"?>'>Login</a>
+      </li>
+    <?php endif;?>
   </nav>

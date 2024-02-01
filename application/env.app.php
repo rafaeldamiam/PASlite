@@ -6,7 +6,7 @@ foreach (glob("application/*.app.php") as $filename){ require_once $filename;}
  * 1 -> paslite.com/controller/action/param1/param2/..
  * 2 -> localhost/paslite/controller/action/param1/param2/..
  */
-define('APP_POSITION', "2");
+define('APP_POSITION', 2);
 // CONTROLER SET FIRST PAGE IN VIEW
 define('MAIN_CONTROLLER', 'app');
 //URL_BASE TAKE AUTOMATICALLY

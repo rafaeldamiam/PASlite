@@ -46,7 +46,7 @@ try {
         call_user_func_array($nameActionController, $parametersController); 
     } else {
         Alert::showAlert($authMsg, "warning");
-        View::redirectView("login/");
+        View::redirectView("login/index");
     }
 
 } catch (ArgumentCountError $e) {
