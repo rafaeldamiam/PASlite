@@ -1,5 +1,7 @@
     <body>
         <?php include 'header.template.php' ?>
-        <?php require $viewFilePath; ?>
+        <center>
+            <?php require $viewFilePath; ?>
+        </center>
         <?php include 'footer.template.php' ?>
     </body> 

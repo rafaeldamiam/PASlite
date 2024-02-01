@@ -5,17 +5,19 @@ require_once "model/user.model.php";
 /** user, admin */
 function index(){
 	$data["users"] = UserModel::takeAllUsers();
-	showView("user/list");
+	View::showView("user/list", $data);
 }
 
 /** user, admin */
 function add(){
-	if(Services::methodPost()){
-		$name = $_POST["name"];
-		$email = $_POST["email"];
-		$password = $_POST["password"];
-		Alert::showAlert($name, $email, $password);
-		View::redirectView("user");
+	if(Services::postMethod()){
+		$name = Services::sanitizeInput($_POST["name"]);
+		$email = Services::sanitizeInput($_POST["email"]);
+		$password = Services::sanitizeInput($_POST["password"]);
+		Alert::showAlert(UserModel::addUser($name, $email, $password));
+		
+		$data = UserModel::takeUserByEmailPassword($email, $password);
+		View::redirectView("user/show/{$data["id"]}");
 	}else{
 		View::showView("user/form");
 	}
@@ -24,26 +26,26 @@ function add(){
 
 /** user, admin */
 function delete($id){
-	Alert::showAlert(deleteUser($id));
+	Alert::showAlert(UserModel::deleteUser($id));
 	View::redirectView("user/index");
 }
 
 /** user, admin */
 function edit($id)
 {
-	if(Services::methodPost()){
+	if(Services::postMethod()){
 		$name = $_POST["name"];
 		$email = $_POST["email"];
-		Alert::showAlert(editUser($id, $name, $email));
-		View::redirectView("user/formulario");
+		Alert::showAlert(UserModel::editUser($id, $name, $email));
+		View::redirectView("user/show/{$id}");
 	}else{
-		$data["user"] = takeUsersById($id);
+		$data["user"] = UserModel::takeUserById($id);
 		View::showView("user/form", $data);
 	}
 }
 
 /** user, admin */
-function showUser(){
-	$data["user"] = takeUserById($id);
+function show($id){
+	$data["user"] = UserModel::takeUserById($id);
 	View::showView("user/show", $data);
 }

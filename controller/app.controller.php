@@ -8,7 +8,7 @@ function index() {
    View::showView("app/index");
 }
 
-/** user, admin */
+/** anon */
 function about() {
    View::showView("app/about");
 }

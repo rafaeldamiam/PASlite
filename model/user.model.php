@@ -9,12 +9,12 @@ Class UserModel{
         $result = $conn->query($sql);
         $user = array();
         while($col = $result->fetchArray(SQLITE3_ASSOC)){
-            $users[] = $col;
+            $user[] = $col;
         }
         return $user;
     }
 
-    public static function takeUserById(){
+    public static function takeUserById($id){
         $conn = Conn::sqlite3();
         $sql = "SELECT * FROM user WHERE id = {$id}";
         $result = $conn->query($sql);
@@ -24,14 +24,13 @@ Class UserModel{
         return $user;
     }
 
-    public static function addUser($name, $mail, $password){
+    public static function addUser($name, $email, $password)
+    {
         $conn = Conn::sqlite3();
-        $sql = "INSERT INTO user(name, email, password)VALUES ({$name}, {$email}, {$password})";
+        $sql = "INSERT INTO user(name, email, password, role)VALUES ('{$name}', '{$email}', '{$password}',  'user')";
         $result = $conn->query($sql);
-        while($col = $result->fetchArray(SQLITE3_ASSOC)){
-            $user = $col;
-        }
-        return $user;
+        if(!$result) { die('Error while INSERT user'); }
+        return "User Successfuly INSERTED!";
     }
 
     public static function editUser($id, $name, $email)

@@ -27,6 +27,9 @@
         <li class="nav-item">
           <a class="nav-link" href='<?=URL_BASE."app/about"?>'>About Us</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href='<?=URL_BASE."user/"?>'>Users</a>
+        </li>
         
     </div>
     <ul class="navbar-nav mr-auto">
