@@ -22,3 +22,5 @@ define('APP_NAME', "PASlite");
  * While the user keep in the main page (without pass through a controller) it will just show the application name
  */
 define('TITLE_POSITION', APP_POSITION);
+//SQLITE db name
+define('SQLITE_DB_NAME', 'paslite.sqlite');
