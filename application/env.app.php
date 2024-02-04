@@ -24,3 +24,7 @@ define('APP_NAME', "PASlite");
 define('TITLE_POSITION', APP_POSITION);
 //SQLITE db name
 define('SQLITE_DB_NAME', 'paslite.sqlite');
+//PUBLIC INPUT (UPLOAD) FOLDER
+define('UPLOAD_LOCATION', 'public/input' );
+//APP Version
+define('APP_VERSION', '1.1' );

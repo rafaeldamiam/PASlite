@@ -126,4 +126,26 @@ class Services
 
         return $arrayEdited;
     }
+
+    public static function sanitizeImage($size, $tmp_name)
+    {
+        $iniUMF = intval(ini_get('upload_max_filesize')) * 10000;
+        $iniPMS = intval(ini_get('post_max_size')) * 10000;
+
+        if ($size > $iniUMF && $size > $iniPMS) {
+            Alert::jsCaution("Sorry, your file is too large! Image default will be add.");
+            $imageState = False;
+        }
+
+        $check = getimagesize($tmp_name);
+        if($check !== false) {
+            $imageState = True;
+        } else {
+            Alert::jsCaution("File is not an image! Image default will be add.");
+            $imageState = False;
+        }
+
+        return $imageState;
+
+    }
 }
