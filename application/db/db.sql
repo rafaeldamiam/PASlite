@@ -16,3 +16,13 @@ INSERT INTO user(name,email,password,profile_img,role)
 VALUES
 ("admin","admin@admin.com","123","public/assets/user.png","admin"),
 ("user","user@user.com","123","public/assets/user.png", "user");
+
+
+------------------------------------------------------------------
+
+UPDATE user 
+SET name = 'user', email = 'user@user.com', password = '123', profile_img = 'public/input/user/2.png' 
+WHERE id = 2
+
+INSERT INTO user(name, email, password, role,) 
+VALUES ('Rafael', 'rafael.damiam23@gmail.com', '123', 'user')
