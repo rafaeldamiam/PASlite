@@ -12,7 +12,7 @@ define('MAIN_CONTROLLER', 'app');
 //URL_BASE TAKE AUTOMATICALLY
 define('URL_BASE', Services::urlBase());
 //define('ACCESS', true);
-define('APP_NAME', "dashub");
+define('APP_NAME', "PASlite");
 /*
  * This constant define which name will be on the title page
  * Position 1 -> Application Name
@@ -23,8 +23,8 @@ define('APP_NAME', "dashub");
  */
 define('TITLE_POSITION', APP_POSITION);
 //SQLITE db name
-define('SQLITE_DB_NAME', 'dashub.sqlite');
-//PUBLIC INPUT (UPLOAD) FOLDER 
+define('SQLITE_DB_NAME', 'paslite.sqlite');
+//PUBLIC INPUT (UPLOAD) FOLDER
 define('UPLOAD_LOCATION', 'public/input' );
 //APP Version
 define('APP_VERSION', '1.1' );

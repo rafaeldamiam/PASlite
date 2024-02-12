@@ -30,9 +30,6 @@
         <li class="nav-item">
           <a class="nav-link" href='<?=URL_BASE."user/"?>'>Users</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href='<?=URL_BASE."site/"?>'>Sites</a>
-        </li>
         
     </div>
     <ul class="navbar-nav mr-auto">
